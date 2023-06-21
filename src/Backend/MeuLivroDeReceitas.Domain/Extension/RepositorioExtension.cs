@@ -6,14 +6,14 @@ public static class RepositorioExtension
 {
     public static string GetNomeDatabase(this IConfiguration configurationManager)
     {
-        var nomeDatabase = configurationManager.GetConnectionString("NomeDatabase");
+        string nomeDatabase = configurationManager.GetConnectionString("NomeDatabase") ?? string.Empty;
 
         return nomeDatabase;
     }
 
     public static string GetConexao(this IConfiguration configurationManager)
     {
-        string? conexao = configurationManager.GetConnectionString("Conexao");
+        string conexao = configurationManager.GetConnectionString("Conexao") ?? string.Empty;
 
         return conexao;
     }
