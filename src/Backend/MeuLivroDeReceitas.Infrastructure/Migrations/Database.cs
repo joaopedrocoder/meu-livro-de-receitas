@@ -21,10 +21,11 @@ public static class Database
 
         //query que vai buscar todos os registros do nosso bd
         var registros = conexao.Query("SELECT * FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = @nome", parametros);
+        string query = $"CREATE DATABASE @nome";
 
         if (!registros.Any())
         {
-            conexao.Execute($"CREATE DATABASE {nomeDatabase}");
+            conexao.Execute(query, parametros);
         }
     }
 }
